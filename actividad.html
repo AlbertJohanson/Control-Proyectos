@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Actividad</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Courier New', Courier, monospace;
+    }   
+
+    section{
+        background-color: #333;
+        height: 100vh;
+        color: #fff;
+        padding: 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    input{
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 5px;
+        border: none;
+    }
+
+    header{
+        position: sticky;
+        background-color: #333;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    header a{
+        color: #fff;
+        text-decoration: none;
+        font-size: 2rem;
+        margin: 1rem;
+    }
+
+</style>
+<body>
+    <header>
+        <!--Create a back arrow-->
+        <a href="./index.html">Back</a>
+    </header>
+    <section>
+        <h1>Crear Actividad</h1>
+    <form>
+        <input type="text" name="codigo_de_actividad" placeholder="Código de Actividad">
+        <input type="text" name="descripcion" placeholder="Descripción">
+        <input type="text" name="codigo_etapa" placeholder="Código de Etapa">
+        <input type="submit" value="Submit">
+    </form>
+    </section>
+</body>
+</html>
+<script>
+    //get the form information
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const codigo_de_actividad = form.codigo_de_actividad.value;
+        const descripcion = form.descripcion.value;
+        const codigo_etapa = form.codigo_etapa.value;
+        //create a dom element showing the information
+        const p = document.createElement('p');
+        p.textContent = `Código de Actividad: ${codigo_de_actividad}, Descripción: ${descripcion}, Código de Etapa: ${codigo_etapa}`;
+        document.querySelector('section').appendChild(p);
+        //reset the form
+        form.codigo_de_actividad.value = '';
+        form.descripcion.value = '';
+        form.codigo_etapa.value = '';
+
+        //add style to the dom element
+        p.style.backgroundColor = '#fff';
+        p.style.color = '#333';
+        p.style.padding = '1rem';
+        p.style.borderRadius = '5px';
+        p.style.margin = '1rem';
+            
+    })
+</script>
